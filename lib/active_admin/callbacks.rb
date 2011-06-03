@@ -11,7 +11,7 @@ module ActiveAdmin
       # We didn't use the ActiveSupport callbacks becuase they do not support
       # passing in any arbitrary object into the callback method (which we
       # need to do)
-      
+
       def call_callback_with(method, *args)
         case method
         when Symbol
@@ -54,19 +54,23 @@ module ActiveAdmin
       #       # runs after save
       #     end
       #   end
-      #     
+      #
       def define_active_admin_callbacks(*names)
         names.each do |name|
           [:before, :after].each do |type|
-            # Create an inheritable accessor array for the callbacks
-            class_inheritable_array "#{type}_#{name}_callbacks".to_sym
-            send("#{type}_#{name}_callbacks=".to_sym, [])
-
             # Define a method to set the callback
             class_eval(<<-EOS, __FILE__, __LINE__ + 1)
+              def self.#{type}_#{name}_callbacks=(val)
+                @#{type}_#{name}_callbacks = val
+              end
+              def self.#{type}_#{name}_callbacks
+                @#{type}_#{name}_callbacks
+              end
+
               # def self.before_create
               def self.#{type}_#{name}(method = nil, &block)
-                #{type}_#{name}_callbacks << (method || block)
+                @#{type}_#{name}_callbacks ||= []
+                @#{type}_#{name}_callbacks << (method || block)
               end
             EOS
           end
