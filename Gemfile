@@ -6,13 +6,13 @@ case ENV["RAILS"]
 when /3.0.(\d)*/
   gem 'rails',          "= 3.0.#{$1}"
   gem "meta_search",    '~> 1.0.0'
-when "3.1.0.rc1"
-  gem 'rails',          '= 3.1.0.rc1'
+when /3.1.0.rc(\d)*/
+  gem 'rails',          "= 3.1.0.rc#{$1}"
   gem "meta_search",    '>= 1.1.0.pre'
 else
   # Default gems for in the gemspec
-  gem 'rails',          '>= 3.0.0'
-  gem "meta_search",    '>= 1.0.0'
+  gem 'rails',          '>= 3.1.0.rc4'
+  gem "meta_search",    '>= 1.0.0.pre'
 end
 
 

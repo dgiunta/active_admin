@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Greg Bell"]
-  s.date = %q{2011-06-03}
+  s.authors = [%q{Greg Bell}]
+  s.date = %q{2011-06-10}
   s.description = %q{The administration framework for Ruby on Rails.}
   s.email = %q{gregdbell@gmail.com}
   s.extra_rdoc_files = [
@@ -24,6 +24,43 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "activeadmin.gemspec",
+    "app/assets/images/active_admin/admin_notes_icon.png",
+    "app/assets/images/active_admin/loading.gif",
+    "app/assets/images/active_admin/nested_menu_arrow.gif",
+    "app/assets/images/active_admin/nested_menu_arrow_dark.gif",
+    "app/assets/images/active_admin/orderable.png",
+    "app/assets/javascripts/active_admin/base.js",
+    "app/assets/javascripts/active_admin/vendor.js",
+    "app/assets/stylesheets/active_admin/_base.scss",
+    "app/assets/stylesheets/active_admin/_comments.scss",
+    "app/assets/stylesheets/active_admin/_flash_messages.scss",
+    "app/assets/stylesheets/active_admin/_forms.scss",
+    "app/assets/stylesheets/active_admin/_header.scss",
+    "app/assets/stylesheets/active_admin/_mixins.scss",
+    "app/assets/stylesheets/active_admin/_typography.scss",
+    "app/assets/stylesheets/active_admin/mixins/_all.scss",
+    "app/assets/stylesheets/active_admin/mixins/_buttons.scss",
+    "app/assets/stylesheets/active_admin/mixins/_gradients.scss",
+    "app/assets/stylesheets/active_admin/mixins/_icons.scss",
+    "app/assets/stylesheets/active_admin/mixins/_reset.scss",
+    "app/assets/stylesheets/active_admin/mixins/_rounded.scss",
+    "app/assets/stylesheets/active_admin/mixins/_sections.scss",
+    "app/assets/stylesheets/active_admin/mixins/_shadows.scss",
+    "app/assets/stylesheets/active_admin/mixins/_variables.scss",
+    "app/views/active_admin/dashboard/index.html.arb",
+    "app/views/active_admin/devise/mailer/reset_password_instructions.html.erb",
+    "app/views/active_admin/devise/mailer/unlock_instructions.html.erb",
+    "app/views/active_admin/devise/passwords/edit.html.erb",
+    "app/views/active_admin/devise/passwords/new.html.erb",
+    "app/views/active_admin/devise/sessions/new.html.erb",
+    "app/views/active_admin/devise/shared/_links.erb",
+    "app/views/active_admin/devise/unlocks/new.html.erb",
+    "app/views/active_admin/resource/edit.html.arb",
+    "app/views/active_admin/resource/index.csv.erb",
+    "app/views/active_admin/resource/index.html.arb",
+    "app/views/active_admin/resource/new.html.arb",
+    "app/views/active_admin/resource/show.html.arb",
+    "app/views/layouts/active_admin_logged_out.html.erb",
     "cucumber.yml",
     "features/comments/commenting.feature",
     "features/comments/viewing_index.feature",
@@ -103,18 +140,21 @@ Gem::Specification.new do |s|
     "lib/active_admin/dashboards/section.rb",
     "lib/active_admin/devise.rb",
     "lib/active_admin/dsl.rb",
+    "lib/active_admin/engine.rb",
     "lib/active_admin/event.rb",
     "lib/active_admin/form_builder.rb",
     "lib/active_admin/helpers/optional_display.rb",
     "lib/active_admin/iconic.rb",
     "lib/active_admin/iconic/icons.rb",
+    "lib/active_admin/locales/da.yml",
     "lib/active_admin/locales/en.yml",
-    "lib/active_admin/locales/pt.yml",
     "lib/active_admin/locales/es.yml",
+    "lib/active_admin/locales/pt.yml",
     "lib/active_admin/menu.rb",
     "lib/active_admin/menu_item.rb",
     "lib/active_admin/namespace.rb",
     "lib/active_admin/page_config.rb",
+    "lib/active_admin/reloader.rb",
     "lib/active_admin/renderer.rb",
     "lib/active_admin/resource.rb",
     "lib/active_admin/resource/belongs_to.rb",
@@ -129,23 +169,9 @@ Gem::Specification.new do |s|
     "lib/active_admin/resource_controller/page_configurations.rb",
     "lib/active_admin/resource_controller/scoping.rb",
     "lib/active_admin/resource_controller/sidebars.rb",
+    "lib/active_admin/sass/active_admin.scss",
     "lib/active_admin/scope.rb",
     "lib/active_admin/sidebar.rb",
-    "lib/active_admin/stylesheets/active_admin.scss",
-    "lib/active_admin/stylesheets/active_admin/_comments.scss",
-    "lib/active_admin/stylesheets/active_admin/_flash_messages.scss",
-    "lib/active_admin/stylesheets/active_admin/_forms.scss",
-    "lib/active_admin/stylesheets/active_admin/_header.scss",
-    "lib/active_admin/stylesheets/active_admin/_typography.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_all.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_buttons.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_gradients.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_icons.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_reset.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_rounded.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_sections.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_shadows.scss",
-    "lib/active_admin/stylesheets/active_admin/mixins/_variables.scss",
     "lib/active_admin/version.rb",
     "lib/active_admin/view_factory.rb",
     "lib/active_admin/view_helpers.rb",
@@ -159,7 +185,6 @@ Gem::Specification.new do |s|
     "lib/active_admin/view_helpers/method_or_proc_helper.rb",
     "lib/active_admin/view_helpers/renderer_helper.rb",
     "lib/active_admin/view_helpers/sidebar_helper.rb",
-    "lib/active_admin/view_helpers/status_tag_helper.rb",
     "lib/active_admin/view_helpers/table_helper.rb",
     "lib/active_admin/view_helpers/title_helper.rb",
     "lib/active_admin/view_helpers/view_factory_helper.rb",
@@ -171,6 +196,7 @@ Gem::Specification.new do |s|
     "lib/active_admin/views/components/panel.rb",
     "lib/active_admin/views/components/scopes.rb",
     "lib/active_admin/views/components/sidebar_section.rb",
+    "lib/active_admin/views/components/status_tag.rb",
     "lib/active_admin/views/components/table_for.rb",
     "lib/active_admin/views/dashboard_section_renderer.rb",
     "lib/active_admin/views/header_renderer.rb",
@@ -185,33 +211,16 @@ Gem::Specification.new do |s|
     "lib/active_admin/views/pages/new.rb",
     "lib/active_admin/views/pages/show.rb",
     "lib/active_admin/views/tabs_renderer.rb",
-    "lib/active_admin/views/templates/active_admin/dashboard/index.html.arb",
-    "lib/active_admin/views/templates/active_admin/devise/mailer/reset_password_instructions.html.erb",
-    "lib/active_admin/views/templates/active_admin/devise/mailer/unlock_instructions.html.erb",
-    "lib/active_admin/views/templates/active_admin/devise/passwords/edit.html.erb",
-    "lib/active_admin/views/templates/active_admin/devise/passwords/new.html.erb",
-    "lib/active_admin/views/templates/active_admin/devise/sessions/new.html.erb",
-    "lib/active_admin/views/templates/active_admin/devise/shared/_links.erb",
-    "lib/active_admin/views/templates/active_admin/devise/unlocks/new.html.erb",
-    "lib/active_admin/views/templates/active_admin/resource/edit.html.arb",
-    "lib/active_admin/views/templates/active_admin/resource/index.csv.erb",
-    "lib/active_admin/views/templates/active_admin/resource/index.html.arb",
-    "lib/active_admin/views/templates/active_admin/resource/new.html.arb",
-    "lib/active_admin/views/templates/active_admin/resource/show.html.arb",
-    "lib/active_admin/views/templates/layouts/active_admin.html.erb",
-    "lib/active_admin/views/templates/layouts/active_admin_logged_out.html.erb",
     "lib/activeadmin.rb",
+    "lib/generators/active_admin/assets/assets_generator.rb",
+    "lib/generators/active_admin/assets/templates/3.0/active_admin.js",
+    "lib/generators/active_admin/assets/templates/3.1/active_admin.css.scss",
+    "lib/generators/active_admin/assets/templates/3.1/active_admin.js",
+    "lib/generators/active_admin/assets/templates/dashboards.rb",
     "lib/generators/active_admin/devise/devise_generator.rb",
     "lib/generators/active_admin/install/install_generator.rb",
-    "lib/generators/active_admin/install/templates/active_admin.js",
     "lib/generators/active_admin/install/templates/active_admin.rb.erb",
-    "lib/generators/active_admin/install/templates/active_admin_vendor.js",
     "lib/generators/active_admin/install/templates/dashboards.rb",
-    "lib/generators/active_admin/install/templates/images/admin_notes_icon.png",
-    "lib/generators/active_admin/install/templates/images/loading.gif",
-    "lib/generators/active_admin/install/templates/images/nested_menu_arrow.gif",
-    "lib/generators/active_admin/install/templates/images/nested_menu_arrow_dark.gif",
-    "lib/generators/active_admin/install/templates/images/orderable.png",
     "lib/generators/active_admin/install/templates/migrations/1_create_admin_notes.rb",
     "lib/generators/active_admin/install/templates/migrations/2_move_admin_notes_to_comments.rb",
     "lib/generators/active_admin/resource/resource_generator.rb",
@@ -241,6 +250,7 @@ Gem::Specification.new do |s|
     "spec/unit/components/columns_spec.rb",
     "spec/unit/components/panel_spec.rb",
     "spec/unit/components/sidebar_section_spec.rb",
+    "spec/unit/components/status_tag_spec.rb",
     "spec/unit/components/table_for_spec.rb",
     "spec/unit/controller_filters_spec.rb",
     "spec/unit/csv_builder_spec.rb",
@@ -251,11 +261,13 @@ Gem::Specification.new do |s|
     "spec/unit/event_spec.rb",
     "spec/unit/filter_form_builder_spec.rb",
     "spec/unit/form_builder_spec.rb",
+    "spec/unit/generators/install_rails_3_1_spec.rb",
     "spec/unit/menu_item_spec.rb",
     "spec/unit/menu_spec.rb",
     "spec/unit/namespace_spec.rb",
     "spec/unit/pretty_format_spec.rb",
     "spec/unit/registration_spec.rb",
+    "spec/unit/reloader_spec.rb",
     "spec/unit/renderer_spec.rb",
     "spec/unit/resource_controller/collection_spec.rb",
     "spec/unit/resource_controller_spec.rb",
@@ -266,8 +278,8 @@ Gem::Specification.new do |s|
     "spec/unit/view_factory_spec.rb"
   ]
   s.homepage = %q{http://activeadmin.info}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.7.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{The administration framework for Ruby on Rails.}
   s.test_files = [
     "spec/integration/belongs_to_spec.rb",
@@ -295,6 +307,7 @@ Gem::Specification.new do |s|
     "spec/unit/components/columns_spec.rb",
     "spec/unit/components/panel_spec.rb",
     "spec/unit/components/sidebar_section_spec.rb",
+    "spec/unit/components/status_tag_spec.rb",
     "spec/unit/components/table_for_spec.rb",
     "spec/unit/controller_filters_spec.rb",
     "spec/unit/csv_builder_spec.rb",
@@ -305,11 +318,13 @@ Gem::Specification.new do |s|
     "spec/unit/event_spec.rb",
     "spec/unit/filter_form_builder_spec.rb",
     "spec/unit/form_builder_spec.rb",
+    "spec/unit/generators/install_rails_3_1_spec.rb",
     "spec/unit/menu_item_spec.rb",
     "spec/unit/menu_spec.rb",
     "spec/unit/namespace_spec.rb",
     "spec/unit/pretty_format_spec.rb",
     "spec/unit/registration_spec.rb",
+    "spec/unit/reloader_spec.rb",
     "spec/unit/renderer_spec.rb",
     "spec/unit/resource_controller/collection_spec.rb",
     "spec/unit/resource_controller_spec.rb",
@@ -324,8 +339,8 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, [">= 3.0.0"])
-      s.add_runtime_dependency(%q<meta_search>, [">= 0.9.2"])
+      s.add_runtime_dependency(%q<rails>, [">= 3.1.0.rc4"])
+      s.add_runtime_dependency(%q<meta_search>, [">= 1.0.0.pre"])
       s.add_runtime_dependency(%q<devise>, [">= 1.1.2"])
       s.add_runtime_dependency(%q<formtastic>, [">= 1.1.0"])
       s.add_runtime_dependency(%q<inherited_resources>, [">= 0"])
@@ -337,8 +352,8 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, ["= 0.8.7"])
       s.add_development_dependency(%q<haml>, ["~> 3.1.1"])
     else
-      s.add_dependency(%q<rails>, [">= 3.0.0"])
-      s.add_dependency(%q<meta_search>, [">= 0.9.2"])
+      s.add_dependency(%q<rails>, [">= 3.1.0.rc4"])
+      s.add_dependency(%q<meta_search>, [">= 1.0.0.pre"])
       s.add_dependency(%q<devise>, [">= 1.1.2"])
       s.add_dependency(%q<formtastic>, [">= 1.1.0"])
       s.add_dependency(%q<inherited_resources>, [">= 0"])
@@ -351,8 +366,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<haml>, ["~> 3.1.1"])
     end
   else
-    s.add_dependency(%q<rails>, [">= 3.0.0"])
-    s.add_dependency(%q<meta_search>, [">= 0.9.2"])
+    s.add_dependency(%q<rails>, [">= 3.1.0.rc4"])
+    s.add_dependency(%q<meta_search>, [">= 1.0.0.pre"])
     s.add_dependency(%q<devise>, [">= 1.1.2"])
     s.add_dependency(%q<formtastic>, [">= 1.1.0"])
     s.add_dependency(%q<inherited_resources>, [">= 0"])
